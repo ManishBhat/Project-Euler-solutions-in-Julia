@@ -1,18 +1,3 @@
-function largest_prime_factor(n)
-    sqrt_n = floor(sqrt(n))
-    ans = 1
-    for i in 2:sqrt_n
-        if i > n
-            break
-        end
-        while n % i == 0
-            ans = i
-            n /= i
-        end
-    end
-    return ans
-end
-
 function esieve(N)
     """
     Function implements sieve of Eratosthenes (for all numbers uptil N).
@@ -40,3 +25,11 @@ function esieve(N)
     end
     return a, prime_list
 end
+
+function main()
+    N = 2_000_000
+    a, prime_list = esieve(N) # Sieve of eratostheneses
+    println(sum(prime_list))
+end
+
+@time main()
